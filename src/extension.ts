@@ -112,9 +112,16 @@ function readAndShow() {
     if (data.ok) {
       statusBarItem.text = `$(cloud) ${data.five_hour}% · ${data.seven_day}%`;
       statusBarItem.tooltip = buildTooltip(data);
-      statusBarItem.backgroundColor = data.five_hour >= 80
-        ? new vscode.ThemeColor('statusBarItem.warningBackground')
-        : undefined;
+      if (data.five_hour >= 90) {
+        statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.errorBackground');
+        statusBarItem.color = new vscode.ThemeColor('statusBarItem.errorForeground');
+      } else if (data.five_hour >= 80) {
+        statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+        statusBarItem.color = new vscode.ThemeColor('statusBarItem.warningForeground');
+      } else {
+        statusBarItem.backgroundColor = undefined;
+        statusBarItem.color = '#4CAF50'; // verde
+      }
     } else {
       statusBarItem.text = '$(cloud) Claude: error';
       const errMd = new vscode.MarkdownString(`**Error:** ${data.error}\n\n*Click para reintentar*`);
