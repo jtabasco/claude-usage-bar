@@ -1,0 +1,33 @@
+{
+  "name": "claude-usage-bar",
+  "displayName": "Claude Usage Bar",
+  "description": "Shows claude.ai usage in the VS Code status bar",
+  "version": "0.1.0",
+  "publisher": "jtabasco",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Claude Usage Bar",
+      "properties": {
+        "claudeUsage.cookies": {
+          "type": "string",
+          "default": "",
+          "description": "Cookie string from claude.ai (include sessionKey and cf_clearance). Example: sessionKey=sk-ant-...; cf_clearance=xxx"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  }
+}
