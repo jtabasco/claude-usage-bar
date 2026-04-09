@@ -76,11 +76,7 @@ La `sessionKey` es válida mientras tengas sesión activa en claude.ai. Si expir
 
 ## 🖥️ Compatibilidad
 
-| Sistema | ✅ |
-|---------|---|
-| Windows | ✓ |
-| macOS   | ✓ |
-| Linux   | ✓ |
+> ⚠️ **Solo probado en Windows.** Puede funcionar en macOS y Linux pero no está garantizado.
 
 ---
 
